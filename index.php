@@ -13,7 +13,7 @@ if (!isset($config['dbpassword'])) {
 if (!isset($config['dbname'])) {
     throw new \Exception('DB Name is not defined in config.php');
 }
-$queryString = $_SERVER['REQUEST_URI'];
+$queryString = explode("?",$_SERVER['REQUEST_URI'])[0];
 $slinkStr = @explode('/', trim($queryString, '/'));
 if ($slinkStr[0] == '') {
     include 'view/home.php';
